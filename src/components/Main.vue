@@ -13,6 +13,11 @@ const faithLevel = computed(() => {
 const pointToLevel = (point: number): number => {
   return Math.floor(Math.log2(point + 1));
 };
+
+const reset = () => {
+  techPoint.value = 0;
+  faithPoint.value = 0;
+};
 </script>
 
 <template>
@@ -26,7 +31,7 @@ const pointToLevel = (point: number): number => {
           <v-icon icon="mdi-book-cross" class="text-h2"></v-icon>
         </v-col>
       </v-layout>
-      <v-layout row class="d-flex align-center justify-center mb-10">
+      <v-layout row class="d-flex align-center justify-center mb-16">
         <v-col cols="3">
           <VerticalCounter
             :count="techPoint"
@@ -75,6 +80,19 @@ const pointToLevel = (point: number): number => {
             "
           />
         </v-col>
+      </v-layout>
+      <v-layout row class="d-flex justify-center">
+        <v-btn
+          block
+          color="#f25865"
+          size="regular"
+          rounded="lg"
+          variant="outlined"
+          @click="reset()"
+          min-height="40px"
+        >
+          Reset
+        </v-btn>
       </v-layout>
     </v-container>
   </div>
